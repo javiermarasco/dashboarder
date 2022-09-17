@@ -4,6 +4,7 @@
 Status:
 [![Docker Image CI](https://github.com/javiermarasco/dashboarder/actions/workflows/docker-image.yml/badge.svg)](https://github.com/javiermarasco/dashboarder/actions/workflows/docker-image.yml)
 
+Docker hub image: https://hub.docker.com/r/javilabs/dashboarder
 
 ## What it is and what is not
 
