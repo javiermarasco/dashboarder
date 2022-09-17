@@ -1,0 +1,122 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: queryazuredashboards.javilabs.io
+spec:
+  scope: Namespaced
+  group: javilabs.io
+  names:
+    kind: QueryAzureDashboard
+    plural: queryazuredashboards
+    singular: queryazuredashboard
+    shortNames:
+      - qazdashboard
+      - qazdashboards
+      - qazd
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+              properties:
+                queries:
+                  type: array
+                  x-kubernetes-preserve-unknown-fields: true
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      x_pos:
+                        type: integer
+                      y_pos:
+                        type: integer
+                      col_span:
+                        type: integer
+                      row_span:
+                        type: integer
+                      resource_metadata_id:
+                        type: string
+                      time_range:
+                        type: string
+                      query:
+                        type: string
+                      sub_title:
+                        type: string
+                      control_type:
+                        type: string
+                      dimensions:
+                        type: string
+                      specific_chart:
+                        type: string
+                      legend_options:
+                        type: string
+                      draft_request_parameters:
+                        type: string
+                    required:
+                    - name
+                    - x_pos
+                    - y_pos
+                    - col_span
+                    - row_span
+                    - resource_metadata_id
+                    - query
+                    - sub_title
+                dashboard:
+                  x-kubernetes-preserve-unknown-fields: true
+                  type: object
+                  properties:
+                    subscription_id:
+                      type: string
+                    resource_group:
+                      type: string
+                    dashboard_name:
+                      type: string
+                    dashboard_subtitle:
+                      type: string
+                    dashboard_time_format:
+                      type: string
+                    dashboard_time_granularity:
+                      type: string
+                    dashboard_time_relative:
+                      type: string
+                    dashboard_display_cache_name:
+                      type: string
+                    dashboard_display_cache_value:
+                      type: string
+                deployment_status:
+                  x-kubernetes-preserve-unknown-fields: true
+                  type: string
+                resource_id:
+                  x-kubernetes-preserve-unknown-fields: true
+                  type: string
+            status:
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+      additionalPrinterColumns:
+        - name: subscription_id
+          type: string
+          priority: 0
+          jsonPath: .spec.dashboard.subscription_id
+        - name: resource_group
+          type: string
+          priority: 0
+          jsonPath: .spec.dashboard.resource_group
+        - name: dashboard_name
+          type: string
+          priority: 0
+          jsonPath: .spec.dashboard.dashboard_name
+        - name: dashboard_subtitle
+          type: string
+          priority: 0
+          jsonPath: .spec.dashboard.dashboard_subtitle
+        - name: deployment_status
+          type: string
+          priority: 0
+          jsonPath: .spec.deployment_status

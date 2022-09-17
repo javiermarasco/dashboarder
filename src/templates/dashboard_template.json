@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "lenses": {
+      "0": {
+        "order": 0,
+        "parts": { {{PARTS}} }
+      }
+    },
+    "metadata": {"model": 
+      {
+        "filters": {
+          "value": {
+            "MsPortalFx_TimeRange": {
+              "model": {
+                "format": "{{ DASHBOARD_TIME_FORMAT }}",
+                "granularity": "{{ DASHBOARD_TIME_GRANULARITY }}",
+                "relative": "{{ DASHBOARD_TIME_RELATIVE }}"
+              },
+              "displayCache": {
+                "name": "{{ DASHBOARD_DISPLAY_CACHE_NAME }}",
+                "value": "{{ DASHBOARD_DISPLAY_CACHE_VALUE }}"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "name": "{{ DASHBOARD_TITLE }}",
+  "type": "Microsoft.Portal/dashboards",
+  "location": "westus",
+  "tags": {
+    "hidden-title": "{{ DASHBOARD_SUBTITLE }}"
+  },
+  "apiVersion": "2015-08-01-preview"
+}

@@ -1,0 +1,24 @@
+# A demo custom resource for the Kopf example operators.
+apiVersion: javilabs.io/v1
+kind: QueryAzureDashboard
+metadata:
+  name: queryazuredashboard
+spec:
+  queries:
+  - name: "Single query panel"
+    x_pos: 0
+    y_pos: 0
+    col_span: 7
+    row_span: 3
+    resource_metadata_id: "/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXX/resourcegroups/myrg/providers/microsoft.operationalinsights/workspaces/demo_log_analytics"
+    time_range: "P1D"
+    query: "KubeEvents | where Namespace contains 'kube-system' | summarize count() by Message"
+    sub_title: "Subtitle for query"
+    control_type: "FrameControlChart"
+  dashboard:
+    subscription_id: "XXXXXXXXXXXXXXXXXXXXXXXXX"
+    resource_group: "dashboarder"
+    dashboard_name: "QueryDashboard"
+    dashboard_subtitle: "Query dashboard using dashboarder"
+    dashboard_time_relative: "7d"
+    dashboard_display_cache_value: "Now 7 days span"

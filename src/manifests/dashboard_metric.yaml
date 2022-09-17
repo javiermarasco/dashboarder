@@ -1,0 +1,25 @@
+# A demo custom resource for the Kopf example operators.
+apiVersion: javilabs.io/v1
+kind: MetricAzureDashboard
+metadata:
+  name: metricazuredashboard
+spec:
+  metrics:
+  - name: "New metric using dashboarder"
+    x_pos: 0
+    y_pos: 0
+    col_span: 5
+    row_span: 3
+    resource_metadata_id: "/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/myrg/providers/Microsoft.ContainerService/managedClusters/demo_cluster"
+    metric_name: "kube_node_status_allocatable_memory_bytes"
+    metric_namespace: "microsoft.containerservice/managedclusters"
+    metric_display_name: "Total amount of available memory in a managed cluster"
+    resource_display_name: "Available memory in cluster"
+  dashboard:
+    subscription_id: "XXXXXXXXXXXXXXXXXXXXXXXXX"
+    resource_group: "dashboarder"
+    dashboard_name: "MetricDashboard"
+    dashboard_subtitle: "Metric dashboard using dashboarder"
+    dashboard_time_relative: "7d"
+  
+  

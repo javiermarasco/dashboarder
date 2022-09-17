@@ -1,0 +1,64 @@
+"{{PART_ID}}": {
+    "position": {
+        "x": {{ PART_X_POS }},
+        "y": {{ PART_Y_POS }},
+        "colSpan": {{ PART_COL_SPAN }},
+        "rowSpan": {{ PART_ROW_SPAN }}
+    },
+    "metadata": {
+        "inputs": [
+            {
+                "name": "options",
+                "isOptional": true
+            },
+            {
+                "name": "sharedTimeRange",
+                "isOptional": true
+            }
+        ],
+        "type": "Extension/HubsExtension/PartType/MonitorChartPart",
+        "settings": {
+            "content": {
+                "options": {
+                    "chart": {
+                        "metrics": [
+                            {
+                                "resourceMetadata": {
+                                  "id": "{{ PART_RESOURCE_METADATA_ID }}"
+                                },
+                                "name": "{{ PART_METRIC_NAME }}",
+                                "aggregationType": 4,
+                                "namespace": "{{ PART_METRIC_NAMESPACE }}",
+                                "metricVisualization": {
+                                  "displayName": "{{ PART_METRIC_DISPLAY_NAME }}",
+                                  "resourceDisplayName": "{{ PART_RESOURCE_DISPLAY_NAME }}"
+                                }
+                              }
+                        ],
+                        "title": "{{ PART_TITLE}}",
+                        "titleKind": 1,
+                        "visualization": {
+                            "chartType": 2,
+                            "legendVisualization": {
+                              "isVisible": true,
+                              "position": 2,
+                              "hideSubtitle": false
+                            },
+                            "axisVisualization": {
+                              "x": {
+                                "isVisible": true,
+                                "axisType": 2
+                              },
+                              "y": {
+                                "isVisible": true,
+                                "axisType": 1
+                              }
+                            },
+                            "disablePinning": true
+                          }
+                    }
+                }
+            }
+        }
+    }
+}

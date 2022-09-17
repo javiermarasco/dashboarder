@@ -1,0 +1,95 @@
+"{{ PART_ID }}": {
+    "position": {
+      "x": {{ PART_X_POS }},
+      "y": {{ PART_Y_POS }},
+      "colSpan": {{ PART_COL_SPAN }},
+      "rowSpan": {{ PART_ROW_SPAN }}
+    },
+    "metadata": {
+      "inputs": [
+        {
+          "name": "resourceTypeMode",
+          "isOptional": true
+        },
+        {
+          "name": "ComponentId",
+          "isOptional": true
+        },
+        {
+          "name": "Scope",
+          "value": {
+            "resourceIds": [
+              "{{ PART_RESOURCE_METADATA_ID }}"
+            ]
+          },
+          "isOptional": true
+        },
+        {
+          "name": "PartId",
+          "value": "23350382-d8a4-46c2-87c4-6e876533c121",
+          "isOptional": true
+        },
+        {
+          "name": "Version",
+          "value": "2.0",
+          "isOptional": true
+        },
+        {
+          "name": "TimeRange",
+          "value": "{{ PART_TIME_RANGE }}",
+          "isOptional": true
+        },
+        {
+          "name": "DashboardId",
+          "isOptional": true
+        },
+        {
+          "name": "DraftRequestParameters",
+          {{ PART_DRAFT_REQUEST_PARAMETERS }}
+          "isOptional": true
+        },
+        {
+          "name": "Query",
+          "value": " {{ PART_QUERY }}",
+          "isOptional": true
+        },
+        {
+          "name": "ControlType",
+          "value": "{{ PART_CONTROL_TYPE }}",
+          "isOptional": true
+        },
+        {
+          "name": "SpecificChart",
+          {{ PART_SPECIFIC_CHART }}
+          "isOptional": true
+        },
+        {
+          "name": "PartTitle",
+          "value": "{{ PART_TITLE }}",
+          "isOptional": true
+        },
+        {
+          "name": "PartSubTitle",
+          "value": "{{ PART_SUB_TITLE }}",
+          "isOptional": true
+        },
+        {
+          "name": "Dimensions",
+          {{ PART_DIMENSIONS }}
+          "isOptional": true
+        },
+        {
+          "name": "LegendOptions",
+          {{ PART_LEGEND_OPTIONS }}
+          "isOptional": true
+        },
+        {
+          "name": "IsQueryContainTimeRange",
+          "value": false,
+          "isOptional": true
+        }
+      ],
+      "type": "Extension/Microsoft_OperationsManagementSuite_Workspace/PartType/LogsDashboardPart",
+      "settings": {}
+    }
+  }
