@@ -17,6 +17,29 @@ The operator uses the Azure `DefaultAzureCredential` which will use the environm
 
 ## Configuration
 
+### Azure service principal required
+
+In azure create a service principal and grant it access to create dashboards in the resource groups that you deploy your dashboards.
+
+Then specify in the deployment of the operator the following environment variables with their corresponding values for your service principal.
+
+- AZURE_TENANT_ID
+```
+This is the id of your azure active directory
+```
+
+- AZURE_CLIENT_ID
+```
+This is the client id of your service principal, also called 'application id'. This is NOT the object id of the service principal.
+```
+
+- AZURE_CLIENT_SECRET
+```
+This is the secret of your service principal, note those secret do expire and you set up the expiration by specifying a duration for the secret, keep in mind that if this secret expires the operator will not be able to modify/create/delete any dashboard.
+
+On expiration, simply create a new one, update the deployment of the operator and delete any old pod for the operator.
+```
+
 
 ### Install the CRDs
 
